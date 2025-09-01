@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="For each Template looping with array list">
+        <div class="slds-m-around_x-small">
+            <ul class="slds-has-dividers_around-space">
+                <template for:each={carList} for:item="eachCar">
+                    <li key={eachCar} class="slds-item">{eachCar}</li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="For each Template looping with Objects list">
+        <div class="slds-m-around_x-small">
+            <ul class="slds-has-dividers_around-space">
+                <template for:each={ceoList} for:item="eachCeo">
+                    <li key={eachCeo.id} class="slds-item">{eachCeo.name} is ceo of {eachCeo.company}</li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="Iterator Template looping ">
+        <div class="slds-m-around_x-small">
+            <!-- CEO Iterator -->
+            <ul class="slds-has-dividers_around-space">
+                <template iterator:it={ceoList} >
+                    <template lwc:if={it.first}>
+                        <div key={it.value.id} class="slds-text-heading_medium">List of CEO's and their company Names</div>
+                    </template>
+                    <li key={it.value.id} class="slds-item">{it.value.name} is ceo of {it.value.company}</li>
+                    <template lwc:if={it.last}>
+                        <div key={it.value.id} class="slds-text-heading_medium">end of list</div>
+                    </template>
+                </template>
+            </ul>
+
+            <!-- Car Iterator -->
+            <ul class="slds-has-dividers_around-space">
+                <template iterator:it={carList}>
+                    <li key={it.value} class="slds-item">{it.value}</li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,28 @@
+<template>
+
+    <lightning-card  title="Conditional rendering" icon-name="custom:custom14">
+
+             <lightning-button variant="brand" label="Data"  onclick={handleToggle} class="slds-m-left_x-small"></lightning-button>
+
+             <template if:true={isVisible}>
+                <p class="slds-p-horizontal_small">You can see the data now</p>
+             </template>
+
+             <template if:false={isVisible}>
+                <p class="slds-p-horizontal_small">You cant see the data now.Please click on the button</p>
+             </template>
+
+             <lightning-input type="text" label="Enter hello text only" onchange={changeHandler} class="slds-m-left_x-small"> </lightning-input>
+
+                <template lwc:if={textCheck}>
+                    <div> Hurray!! You have entered the right data </div>
+                </template>
+
+
+            
+
+
+            
+    </lightning-card>
+    
+</template>
